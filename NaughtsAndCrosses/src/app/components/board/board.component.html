@@ -10,6 +10,8 @@
   <app-square
     *ngFor="let val of squares; let i = index"
     [value]="val"
+    [winner]="winner"
+    [isDisabled]="isDisabled"
     (click)="makeMove(i)"
   >
   </app-square>

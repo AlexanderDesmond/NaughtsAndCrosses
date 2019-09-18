@@ -10,6 +10,8 @@ export class BoardComponent implements OnInit {
   xIsNext: boolean;
   winner: string;
 
+  isDisabled: boolean;
+
   constructor() {}
 
   ngOnInit() {
@@ -20,6 +22,7 @@ export class BoardComponent implements OnInit {
     this.squares = Array(9).fill(null);
     this.winner = null;
     this.xIsNext = true;
+    this.isDisabled = false;
   }
 
   get player() {
@@ -55,10 +58,15 @@ export class BoardComponent implements OnInit {
         this.squares[a] === this.squares[b] &&
         this.squares[a] === this.squares[c]
       ) {
+        this.disableSquare();
         return this.squares[a];
       }
     }
 
     return null;
+  }
+
+  disableSquare() {
+    this.isDisabled = true;
   }
 }

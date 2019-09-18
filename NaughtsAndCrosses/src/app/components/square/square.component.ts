@@ -7,6 +7,12 @@ import { Component, Input } from "@angular/core";
 })
 export class SquareComponent {
   @Input() value: "X" | "O";
+  @Input() winner;
+  @Input() isDisabled: boolean = false;
 
   constructor() {}
+
+  disableSquare() {
+    this.isDisabled = false;
+  }
 }
